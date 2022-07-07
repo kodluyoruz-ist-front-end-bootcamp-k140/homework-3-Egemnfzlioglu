@@ -64,12 +64,13 @@ const FunctionComponent = () => {
   const renderTableTodo = () => {
     return (
       <>
-        <table className="table table-bordered border-primary">
+        <table className="table table-bordered border-primary text-success">
           <thead>
             <tr>
               <th scope="col">#</th>
               <th scope="col">Başlık</th>
               <th scope="col">Durum</th>
+              <th scope="col">Aksiyonlar</th>
             </tr>
           </thead>
           <tbody>{renderBodyTodo()}</tbody>
@@ -104,7 +105,7 @@ const FunctionComponent = () => {
   const renderTablePosts = () => {
     return (
       <>
-        <table className="table table-bordered border-primary">
+        <table className="table table-bordered border-primary text-success">
           <thead>
             <tr>
               <th className="col-md-1" scope="col">
@@ -138,7 +139,7 @@ const FunctionComponent = () => {
               className={
                 activeTab === "cls"
                   ? "col m-2 btn btn-warning"
-                  : "col m-2 btn btn-default "
+                  : "col m-2 btn btn-warning "
               }
             >
               Fn Post Component
@@ -149,7 +150,7 @@ const FunctionComponent = () => {
               className={
                 activeTab === "fn"
                   ? "col m-2 btn btn-warning"
-                  : "col m-2 btn btn-default"
+                  : "col m-2 btn btn-warning"
               }
             >
               Fn Todo Component

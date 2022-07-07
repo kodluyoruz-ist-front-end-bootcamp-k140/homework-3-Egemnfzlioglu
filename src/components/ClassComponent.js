@@ -13,6 +13,7 @@
         this.getTodos();
         this.getPosts();
     }
+    
 
     getTodos = () => {
         this.setState({ loading: true });
@@ -43,7 +44,7 @@
         <React.Fragment>
             {this.state.todos.map((item, i) => {
             return (
-                <tr key={i}>
+                <tr  key={i}>
                 <th scope="row">{item.id}</th>
                 <td>{item.title}</td>
                 <td>{item.completed ? "Tamamlandı" : "Yapılacak"}</td>
@@ -61,7 +62,7 @@
     renderTable = () => {
         return (
         <>
-            <table className="table table-bordered border-primary">
+            <table className="table table-bordered border-primary text-success">
             <thead>
                 <tr>
                 <th scope="col">#</th>
@@ -97,7 +98,7 @@
     renderTableP = () => {
         return (
         <>
-            <table className="table table-bordered border-primary">
+            <table className="table table-bordered border-primary text-success">
             <thead>
                 <tr>
                 <th scope="col">#</th>
@@ -127,10 +128,10 @@
         const { loading } = this.state;
 
         return (
-        <div className="container">
-            <div className="container">
+        <div className="container ">
+            <div className="container ">
             <div
-               className="btn-group tabs d-flex justify-content-center"
+                className="btn-group tabs d-flex justify-content-center m-3"
                 role="group"
                 aria-label="Basic example"
             >
