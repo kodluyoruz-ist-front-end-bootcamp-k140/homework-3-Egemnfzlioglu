@@ -1,3 +1,4 @@
+[Odev-3 netlify linki](https://capable-cassata-be68fa.netlify.app/)
 # Homework 3
 
 Öğrendiğiniz React kavramlarını kullanarak, aşağıdaki görevi yapmanız bekleniyor.
