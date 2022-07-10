@@ -12,6 +12,7 @@ const FunctionComponent = () => {
     getPosts();
   }, []);
 
+  // ### todo datasını çekiyoruz
   const getTodos = () => {
     setLoading(true);
     fetch("https://jsonplaceholder.typicode.com/todos")
@@ -25,6 +26,8 @@ const FunctionComponent = () => {
         setLoading(false);
       });
   };
+
+  // ### post datasını çekiyoruz
   const getPosts = () => {
     setLoading(true);
     fetch("https://jsonplaceholder.typicode.com/posts")
@@ -38,6 +41,8 @@ const FunctionComponent = () => {
         setLoading(false);
       });
   };
+
+  // ###### todoları tabloya yazdırıyoruz
 
   const renderBodyTodo = (e) => {
     return (
@@ -61,20 +66,24 @@ const FunctionComponent = () => {
     );
   };
 
+  // ###### postları tabloya yazdırıyoruz
+
   const renderTableTodo = () => {
     return (
       <>
-        <table className="table table-bordered border-primary text-success">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Başlık</th>
-              <th scope="col">Durum</th>
-              <th scope="col">Aksiyonlar</th>
-            </tr>
-          </thead>
-          <tbody>{renderBodyTodo()}</tbody>
-        </table>
+        <div className="todoAndPostDiv">
+          <table id="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Başlık</th>
+                <th scope="col">Durum</th>
+                <th scope="col">Aksiyonlar</th>
+              </tr>
+            </thead>
+            <tbody>{renderBodyTodo()}</tbody>
+          </table>
+        </div>
       </>
     );
   };
@@ -82,6 +91,8 @@ const FunctionComponent = () => {
   // ##############################################################
   // ##############################################################
   // ##############################################################
+
+  // ### postları yazdırıyoruz"
 
   const renderBodyPosts = (e) => {
     return (
@@ -105,67 +116,56 @@ const FunctionComponent = () => {
   const renderTablePosts = () => {
     return (
       <>
-        <table className="table table-bordered border-primary text-success">
-          <thead>
-            <tr>
-              <th className="col-md-1" scope="col">
-                #
-              </th>
-              <th className="col-md-3" scope="col">
-                Başlık
-              </th>
-              <th className="col-md-8" scope="col">
-                İçerik
-              </th>
-            </tr>
-          </thead>
-          <tbody>{renderBodyPosts()}</tbody>
-        </table>
+        <div className="todoAndPostDiv">
+          <table id="table">
+            <thead>
+              <tr>
+                <th className="col-md-1" scope="col">
+                  #
+                </th>
+                <th className="col-md-3" scope="col">
+                  Başlık
+                </th>
+                <th className="col-md-8" scope="col">
+                  İçerik
+                </th>
+              </tr>
+            </thead>
+            <tbody>{renderBodyPosts()}</tbody>
+          </table>
+        </div>
       </>
     );
   };
 
+  // ##############################################################
+
+  // ### render işlemi yapıyoruz ve burada TODO ve POST arası geçişi sağlıyoruz
+
   return (
     <>
-      <div className="App container">
-        <div className="container">
-          <div
-           className="btn-group tabs d-flex justify-content-center"
-            role="group"
-            aria-label="Basic example"
-          >
-            <button
-              onClick={() => setActiveTab("cls")}
-              className={
-                activeTab === "cls"
-                  ? "col m-2 btn btn-warning"
-                  : "col m-2 btn btn-warning "
-              }
-            >
-              Fn Post Component
-            </button>
-            <h1 className="mx-5"></h1>
-            <button
-              onClick={() => setActiveTab("fn")}
-              className={
-                activeTab === "fn"
-                  ? "col m-2 btn btn-warning"
-                  : "col m-2 btn btn-warning"
-              }
-            >
-              Fn Todo Component
-            </button>
-          </div>
-          <br />
-          {loading ? (
-            <div className="spinner-border text-primary" role="status">
-              <span className="sr-only">Loading...</span>
-            </div>
-          ) : (
-            <>{activeTab === "cls" ? renderTablePosts()   : renderTableTodo() }</>
-          )}
-        </div>
+      <div className="buttons">
+        <button
+          onClick={() => setActiveTab("cls")}
+          className={activeTab === "cls" ? " btn-warning" : "btn-warning "}
+        >
+          Fn Post Component
+        </button>
+        <button
+          onClick={() => setActiveTab("fn")}
+          className={activeTab === "fn" ? "btn-warning" : "btn-warning"}
+        >
+          Fn Todo Component
+        </button>
       </div>
+      <br />
+      {loading ? (
+        <div className="spinner-border text-primary" role="status">
+          <span className="sr-only">Loading...</span>
+        </div>
+      ) : (
+        <>{activeTab === "cls" ? renderTablePosts() : renderTableTodo()}</>
+      )}
     </>
   );
 };

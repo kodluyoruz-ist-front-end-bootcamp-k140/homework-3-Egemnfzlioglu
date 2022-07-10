@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  width: 100%;
+}
+
+main {
+  color: #333;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  background-color: #fbfbfb;
+  padding: 16px;
+}
+
+main.dark-theme {
+  background-color: #11181c;
+  color: #bfc8ce;
+}
+
+main.dark-theme header {
+  background-color: #0b1012;
+}
+
+/* ############ */
+/* ############ */
+/* ############ */
+
+.todoAndPostDiv{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 15%;
+  
+}
+
+#table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#table td,
+#table th {
+  border: 1px solid #ddd;
+  padding: .5rem;
+  text-align: center;
+  }  
+
+#table tr:hover {
+  background-color: #ddd;
+  color: #0b1012;
+}
+
+#table th {
+  padding:0.5rem;
+  text-align: center;
+  background-color: #04aa6d;
+  color: white;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.buttons>button {
+  display: flex;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+
+
+.btn-danger {
+  background-color: #ff1500cb;
+  color: #fff;
+  border: none;
+  padding: .8rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 2px;
+}
+
+.btn-warning {
+  background-color: #ffc000cb;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 2px;
+}
+
+
+
+.btn-primary{
+  background-color: #04aaa5;
+  color: #fff;
+  border: none;
+  padding: .8rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 2px;
+  font-size: 1.1rem;
+}
+
+
+.btn-success {
+  background-color: #e2e7e59b;
+  color: rgb(50, 70, 120);
+  border: none;
+  padding: .8rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 2px;
+  font-size: 1.1rem;
+  border: 1px solid rgba(0, 0, 120, 0.5);
+}

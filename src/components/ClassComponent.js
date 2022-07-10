@@ -14,7 +14,7 @@
         this.getPosts();
     }
     
-
+// ### todo datasını çekiyoruz
     getTodos = () => {
         this.setState({ loading: true });
         fetch("https://jsonplaceholder.typicode.com/todos")
@@ -27,6 +27,7 @@
         });
     };
 
+    // ### post datasını çekiyoruz
     getPosts = () => {
         this.setState({ loading: true });
         fetch("https://jsonplaceholder.typicode.com/posts")
@@ -38,6 +39,8 @@
             this.setState({ loading: false });
         });
     };
+
+    //### todoları tabloya yazdırıyoruz
 
     renderBody = () => {
         return (
@@ -59,10 +62,13 @@
         );
     };
 
+    // ### todo tablo baslık kısmını yazdırıyoruz ve todo tablosunu gösteriyoruz 
+
     renderTable = () => {
         return (
         <>
-            <table className="table table-bordered border-primary text-success">
+        <div className="todoAndPostDiv">
+            <table id="table">
             <thead>
                 <tr>
                 <th scope="col">#</th>
@@ -73,12 +79,15 @@
             </thead>
             <tbody>{this.renderBody()}</tbody>
             </table>
+            </div>
         </>
         );
     };
 
     //   ############################################
 
+
+    // ### postları yazdırıyoruz"
     renderBodyP = () => {
         return (
         <React.Fragment>
@@ -95,10 +104,13 @@
         );
     };
 
+
+    // ### post butonuna tıklandığında post tablosunu gösteriyoruz
     renderTableP = () => {
         return (
         <>
-            <table className="table table-bordered border-primary text-success">
+        <div className="todoAndPostDiv">
+            <table id="table">
             <thead>
                 <tr>
                 <th scope="col">#</th>
@@ -108,6 +120,7 @@
             </thead>
             <tbody>{this.renderBodyP()}</tbody>
             </table>
+            </div>
         </>
         );
     };
@@ -124,27 +137,32 @@
     clickPost = () => {
         this.setState({ status: "post" });
     };
+
+
+
+// ### render işlemi yapıyoruz ve burada TODO ve POST arası geçişi sağlıyoruz
+
+
     render() {
         const { loading } = this.state;
 
+
+
+
+
         return (
         <div className="container ">
-            <div className="container ">
-            <div
-                className="btn-group tabs d-flex justify-content-center m-3"
-                role="group"
-                aria-label="Basic example"
-            >
+            <div className="buttons ">
+            
                 <button
                 onClick={this.clickTodos}
-                className=" col m-2 btn btn-success"
+                className=" btn-success"
                 >
                 Class Todos Component
                 </button>
-                <h1 className="mx-5"></h1>
                 <button
                 onClick={this.clickPost}
-                className=" col m-2 btn btn-success"
+                className=" btn-success"
                 >
                 Class Post Component
                 </button>
@@ -152,7 +170,7 @@
 
             {loading ? "Loading..." : this.renderStatus()}
             </div>
-        </div>
+        
         );
     }
     }

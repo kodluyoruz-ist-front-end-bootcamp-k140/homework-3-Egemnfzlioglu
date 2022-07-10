@@ -1,17 +1,14 @@
-import { useState, useEffect, useContext } from "react";
+import { useState } from "react";
 
-import ClassComponent from "./components/ClassComponent";
-import FunctionComponent from "./components/FunctionComponent";
 import { ThemeContext } from "./Context/ThemeContext";
 import Main from "./components/main";
 import "./App.css";
+import "./style.css"
 
 function App() {
   const [theme, setTheme] = useState("");
 
-  useEffect(() => {
-    // document.body.className = theme;
-  }, [theme]);
+
 
   const data = {
     theme,
@@ -21,11 +18,7 @@ function App() {
   return (
     <>
       <ThemeContext.Provider value={data}>
-        <Main />?
-        {<FunctionComponent />?
-        <></>:
-
-        <ClassComponent />}
+        <Main />
       </ThemeContext.Provider>
     </>
   );
